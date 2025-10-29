@@ -1,13 +1,16 @@
+import org.w3c.dom.Text;
+
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.security.cert.PolicyNode;
 
-public class SimpleAWTLayout extends Frame {
-    SimpleAWTLayout(){
+class simpleLayout extends Frame {
+    simpleLayout(){
+        //set frame layout
 
-        //frame layout setup
-        setTitle("Simple layout");
+        setTitle("Simple Layout");
         setLayout(null);
         setSize(500,400);
         setVisible(true);
@@ -20,10 +23,10 @@ public class SimpleAWTLayout extends Frame {
             }
         });
 
-        //header bar
+        //header
 
         Panel header = new Panel(null);
-        header.setBounds(0,40,500,50);
+        header.setBounds(0,30,500,50);
         header.setBackground(new Color(0,32,92));
         add(header);
 
@@ -33,18 +36,36 @@ public class SimpleAWTLayout extends Frame {
         headerText.setFont(new Font("Arial",Font.BOLD,16));
         header.add(headerText);
 
-        //center login form
+        //left panel
+        Panel leftP = new Panel(null);
+        leftP.setBounds(10,100,130,230);
+        leftP.setBackground(Color.lightGray);
+        add(leftP);
+
+        //right panel
+
+        Panel rightP = new Panel(null);
+        rightP.setBounds(360,100,140,230);
+        rightP.setBackground(Color.lightGray);
+        add(rightP);
+
+
+
+
+        //set content
+
         Panel center = new Panel(null);
-        center.setBounds(150,90,200,230);
+        center.setBounds(150,100,200,230);
         center.setBackground(new Color(230,235,225));
         add(center);
 
-        Label loginTitle = new Label("LOGIN PAGE!", Label.CENTER);
-        loginTitle.setBounds(40,20,120,20);
-        loginTitle.setFont(new Font("Arial",Font.BOLD,13));
-        center.add(loginTitle);
+        Label h2 = new Label("REGISTRATION FORM",Label.CENTER);
+        h2.setBounds(20,10,150,50);
+        header.setForeground(Color.black);
+        header.setFont(new Font("Arial", Font.BOLD,16));
+        center.add(h2);
 
-        Label username = new Label("USERNAME:");
+        Label username = new Label("username:");
         username.setBounds(20,60,70,25);
         center.add(username);
 
@@ -52,7 +73,7 @@ public class SimpleAWTLayout extends Frame {
         user.setBounds(100,60,80,25);
         center.add(user);
 
-        Label password = new Label("PASSWORD:");
+        Label password = new Label("Password:");
         password.setBounds(20,100,70,25);
         center.add(password);
 
@@ -60,36 +81,26 @@ public class SimpleAWTLayout extends Frame {
         pass.setBounds(100,100,80,25);
         center.add(pass);
 
-        Button btnlogin = new Button("Login");
-        btnlogin.setBounds(100,130,80,30);
-        btnlogin.setBackground(new Color(0,32,64));
-        btnlogin.setForeground(Color.white);
-        center.add(btnlogin);
+        Button btnLogin = new Button("Register");
+        btnLogin.setBounds(20,140,70,30);
+        btnLogin.setBackground(new Color(0,32,92));
+        btnLogin.setForeground(Color.white);
+        center.add(btnLogin);
 
-        //bottom panel
+        Button btnCancel = new Button("Cancel");
+        btnCancel.setBounds(110,140,70,30);
+        btnCancel.setBackground(Color.red);
+        center.add(btnCancel);
 
         Panel bottom = new Panel(null);
-        bottom.setBounds(0, 320, 500, 80);
-        bottom.setBackground(new Color(80, 120, 160));
+        bottom.setBounds(0,350,500,60);
+        bottom.setBackground(Color.CYAN);
         add(bottom);
 
-        Label copyright = new Label("this is my work - 2025", Label.CENTER);
-        copyright.setBounds(100, 25, 300, 30); // centered vertically within 80px height
-        copyright.setForeground(Color.white);
-        copyright.setFont(new Font("Arial", Font.BOLD, 13));
-        bottom.add(copyright);
-
-
-
-
-
-
-
-
-
-
-
+        Label h3 = new Label("2025 copy-Right", Label.CENTER);
+        h3.setBounds(60,10,400,30);
+        h3.setForeground(Color.white);
+        bottom.add(h3);
 
     }
-
 }
